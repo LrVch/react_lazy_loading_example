@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.main-menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.main-menu li {
+  margin-right: 20px;
+}
+
+.main-menu li a.active {
+  color: red;
+}
