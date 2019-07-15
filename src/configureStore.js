@@ -9,19 +9,19 @@ import { getUserModule } from './userModule/redux/module'
 const epicMiddleware = createEpicMiddleware()
 
 const store = createStore({
-    initialState: {
-      counter: 10,
-      pingpong: {
-        isPining: true
-      }
-    },
+    // initialState: {
+    //   counter: 10,
+    //   pingpong: {
+    //     isPining: true
+    //   }
+    // },
     enhancers: [applyMiddleware(epicMiddleware)],
     extensions: [],
   },
   [
-    getCounterModule(),
-    getPingPongModule(),
-    getUserModule()
+    // getCounterModule(),
+    // getPingPongModule(),
+    // getUserModule()
   ]
 )
 

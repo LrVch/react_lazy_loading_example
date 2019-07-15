@@ -38,9 +38,9 @@ const User = ({ info, isLoading, isError, loadUser, cancel }) => {
 }
 
 const matStateToProps = state => ({
-  info: state.user.info,
-  isLoading: state.user.isLoading,
-  isError: state.user.isError,
+  info: state.user && state.user.info,
+  isLoading: state.user && state.user.isLoading,
+  isError: state.user && state.user.isError,
 })
 
 const matDispatchToProps = dispatch => ({
