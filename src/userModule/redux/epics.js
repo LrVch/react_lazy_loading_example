@@ -25,7 +25,8 @@ import { loadUserSuccess, loadUserFail } from './actions';
 import {
   of,
   // race,
-  interval
+  interval,
+  empty
 } from 'rxjs';
 
 
@@ -64,7 +65,7 @@ export const loadUserSuccess$ = (action$, state$) => action$.pipe(
     const { login } = info
     window.localStorage.setItem(login, JSON.stringify(info))
   }),
-  mapTo({ type: '' })
+  switchMap(() => empty())
 )
 
 export const cancelWithRace$ = (action$, state$) => action$.pipe(
@@ -72,7 +73,7 @@ export const cancelWithRace$ = (action$, state$) => action$.pipe(
   tap((action) => {
     console.log(action.type)
   }),
-  mapTo({ type: '' })
+  switchMap(() => empty())
 )
 
 export const changeHour$ = (action$, state$) => interval(600).pipe(
@@ -98,11 +99,5 @@ const user$ = combineEpics(
   changeHour$,
   // changeHourPlain$
 )
-
-
-// import('./index').then(module => {
-//   module.epic$.next(user$)
-//   console.log('user epict added to stream from user epics')
-// })
 
 export default user$

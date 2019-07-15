@@ -8,7 +8,7 @@ export function getUserModule() {
       },
       // Actions to fire when this module is added/removed
       initialActions: [{type: 'INIT_USER'}],
-      // finalActions: []
+      finalActions: [{type: 'USER_SHUTDOWN'}],
   };
 }
 
